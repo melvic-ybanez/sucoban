@@ -3,7 +3,7 @@ package com.github.melvic.sucoban
 import com.github.melvic.sucoban.Term.{False, If, IsZero, Pred, Succ, True, Zero}
 
 object Show {
-  def apply: Term => String = {
+  def apply(term: Term): String = term match {
     case True => "true"
     case False => "false"
     case If(condition, ifTrue, ifFalse) =>

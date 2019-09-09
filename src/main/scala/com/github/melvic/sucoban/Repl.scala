@@ -7,7 +7,7 @@ import scala.io.StdIn
 
 object Repl {
   @tailrec
-  def loop(): Unit = StdIn.readLine("> ") match {
+  def apply(): Unit = StdIn.readLine("> ") match {
     case "exit" => println("Bye.")
     case input =>
       val result = parse(input, Parsers.term(_)) match {
@@ -15,6 +15,6 @@ object Repl {
         case Parsed.Failure(_, _, extra) => s"An Error occurred: $extra"
       }
       println(result)
-      Repl.loop()
+      Repl()
   }
 }

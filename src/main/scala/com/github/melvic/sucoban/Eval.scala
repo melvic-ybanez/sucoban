@@ -3,7 +3,7 @@ package com.github.melvic.sucoban
 import com.github.melvic.sucoban.Term._
 
 object Eval {
-  def apply: Term => Term = {
+  def apply(term: Term): Term = term match {
     case If(True, ifTrue, _) => Eval(ifTrue)
     case If(False, _, ifFalse) => Eval(ifFalse)
     case If(condition, ifTrue, ifFalse) => Eval(If(Eval(condition), ifTrue, ifFalse))
