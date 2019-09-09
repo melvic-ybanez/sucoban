@@ -11,7 +11,7 @@ object Repl {
     case "exit" => println("Bye.")
     case input =>
       val result = parse(input, Parsers.term(_)) match {
-        case Parsed.Success(value, _) => Show(value)
+        case Parsed.Success(value, _) => Show(Eval(value))
         case failure : Parsed.Failure => s"An Error occurred: ${failure.msg}"
       }
       println(result)

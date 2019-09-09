@@ -7,7 +7,7 @@ object Show {
     case True => "true"
     case False => "false"
     case If(condition, ifTrue, ifFalse) =>
-      s"if ${Show(ifTrue)} else ${Show(ifFalse)}"
+      s"if ${Show(condition)} ${Show(ifTrue)} else ${Show(ifFalse)}"
     case Zero => "0"
     case Succ(term) => s"succ ${Show(term)}"
     case Pred(term) => s"pred ${Show(term)}"
