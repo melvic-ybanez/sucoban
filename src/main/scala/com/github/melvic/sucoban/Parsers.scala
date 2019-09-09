@@ -18,5 +18,5 @@ object Parsers {
 
   def isZero[_: P] = P("isZero" ~ term).map(IsZero)
 
-  def term[_: P]: P[Term] = P(`true` | `false` | zero | ifCondition | succ | pred | isZero)
+  def term[_: P]: P[Term] = P((`true` | `false` | zero | ifCondition | succ | pred | isZero) ~ End)
 }

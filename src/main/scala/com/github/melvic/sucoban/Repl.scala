@@ -12,7 +12,7 @@ object Repl {
     case input =>
       val result = parse(input, Parsers.term(_)) match {
         case Parsed.Success(value, _) => Show(value)
-        case Parsed.Failure(_, _, extra) => s"An Error occurred: $extra"
+        case failure : Parsed.Failure => s"An Error occurred: ${failure.msg}"
       }
       println(result)
       Repl()
