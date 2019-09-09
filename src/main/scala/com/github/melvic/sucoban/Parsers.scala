@@ -8,7 +8,7 @@ object Parsers {
   def `false`[_: P] = P("false").map(_ => False)
   def zero[_: P] = P("0").map(_ => Zero)
 
-  def ifCondition[_: P] = P("if" ~ term ~ term ~ "else" ~ term).map { case (condition, ifTrue, ifFalse) =>
+  def ifCondition[_: P]: P[Term] = P("if" ~ term ~ term ~ "else" ~ term).map { case (condition, ifTrue, ifFalse) =>
     If(condition, ifTrue, ifFalse)
   }
 
