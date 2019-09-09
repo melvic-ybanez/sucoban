@@ -1,3 +1,5 @@
+package com.github.melvic.sucoban
+
 sealed trait Term
 
 object Term {

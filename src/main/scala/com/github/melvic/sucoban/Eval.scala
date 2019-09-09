@@ -1,4 +1,6 @@
-import Term.{False, If, IsZero, Pred, Succ, True, Zero}
+package com.github.melvic.sucoban
+
+import com.github.melvic.sucoban.Term._
 
 object Eval {
   def apply: Term => Term = {

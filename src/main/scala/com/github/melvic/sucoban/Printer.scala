@@ -1,3 +1,5 @@
+package com.github.melvic.sucoban
+
 trait Printer[A, O] {
   def printTerm(instance: A, term: Term): O
 }

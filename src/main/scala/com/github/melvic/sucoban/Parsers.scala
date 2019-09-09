@@ -1,6 +1,7 @@
-import fastparse._
-import ScalaWhitespace._
-import Term.{False, If, IsZero, Pred, Succ, True, Zero}
+package com.github.melvic.sucoban
+
+import com.github.melvic.sucoban.Term._
+import fastparse.P
 
 object Parsers {
   def `true`[_: P] = P("true").map(_ => True)
