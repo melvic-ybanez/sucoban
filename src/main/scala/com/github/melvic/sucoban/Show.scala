@@ -9,8 +9,17 @@ object Show {
     case If(condition, ifTrue, ifFalse) =>
       s"if ${Show(condition)} ${Show(ifTrue)} else ${Show(ifFalse)}"
     case Zero => "0"
-    case Succ(term) => s"succ ${Show(term)}"
-    case Pred(term) => s"pred ${Show(term)}"
+    case succ: Succ => toNumber(succ).toString
+    case pred: Pred => toNumber(pred).toString
     case IsZero(term) => s"isZero ${Show(term)}"
+  }
+
+  def toNumber: Term => Int = {
+    case Succ(Zero) => 1
+    case Succ(term) => 1 + toNumber(term)
+    case Pred(Zero) => 0
+    case Pred(term) =>
+      val x = toNumber(term)
+      if (x > 0) x - 1 else 0
   }
 }
